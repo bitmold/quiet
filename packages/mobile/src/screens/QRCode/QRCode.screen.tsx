@@ -46,6 +46,7 @@ export const QRCodeScreen: FC = () => {
         await Share.open({
           title: '"Quiet" invitation',
           message: `Chat with me on "Quiet"!\n${invitationLink}`,
+          useInternalStorage: true,
           url: `data:image/png;base64,${base64}`,
         })
       } catch (error) {
