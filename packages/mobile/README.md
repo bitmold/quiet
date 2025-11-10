@@ -207,7 +207,7 @@ const watchFolders = [
     bundle exec pod install 
     ```
 
-1. In `packages/mobile`, create a `.xcode.env.local` file with your Node path:
+1. In `packages/mobile/ios`, create a `.xcode.env.local` file with your Node path:
 
      ```bash
      echo "export NODE_BINARY=$(which node)" > .xcode.env.local

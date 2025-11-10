@@ -333,7 +333,6 @@ napi_value Method_GetDataDir(napi_env env, napi_callback_info info) {
   { name, 0, func, 0, 0, 0, napi_default, 0 }
 
 napi_value Init(napi_env env, napi_value exports) {
-    napi_status status;
     napi_property_descriptor properties[] = {
         DECLARE_NAPI_METHOD("sendMessage", Method_SendMessage),
         DECLARE_NAPI_METHOD("registerChannel", Method_RegisterChannel),
@@ -347,7 +346,7 @@ napi_value Init(napi_env env, napi_value exports) {
  * This method is the public API called by the React Native plugin
  */
 void rn_bridge_notify(const char* channelName, const char *message) {
-    int messageLength=strlen(message);
+    size_t messageLength=strlen(message);
     char* messageCopy = (char*)calloc(sizeof(char),messageLength + 1);
     strncpy(messageCopy, message, messageLength);
 
