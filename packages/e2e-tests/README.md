@@ -19,23 +19,23 @@
 ### Building and Running Tests
 
 1. In the `desktop` package, build the application:
-   - Mac: `npm run distMac:local` # you may have to copy the binary from /Applications to the `e2e-tests/Quiet` directory
-   - Linux: `npm run distUbuntu`
+   - Mac: `node --run distMac:local` # you may have to copy the binary from /Applications to the `e2e-tests/Quiet` directory
+   - Linux: `node --run distUbuntu`
 
 2. In the `e2e-tests` package:
 
-`npm run linux:copy` # copy the binary to the `e2e-tests/Quiet` directory
-`npm run test` # run all tests
+`node --run linux:copy` # copy the binary to the `e2e-tests/Quiet` directory
+`node --run test` # run all tests
 
 To run individual tests:
 
-`npm run test oneClient.test.ts`
+`node --run test oneClient.test.ts`
 
 ### Known Issues & Tips
 
 - For Mac: We may need to manually mount the .dmg and copy to /Applications (need to verify exact steps)
 - For Linux: The `linux:copy` script handles moving the binary to `e2e-tests/Quiet/`
-- Tests can be flaky - use the retry flag if needed: `npm run test oneClient.test.ts -- --retry 3`
+- Tests can be flaky - use the retry flag if needed: `node --run test oneClient.test.ts -- --retry 3`
 - Set `DEBUG=backend*,quiet*` for more verbose logging
 - The tests expect a clean state - you may need to clear application data between runs
 

@@ -70,7 +70,7 @@ Quiet Mobile is a React Native app for Android and iOS that shares a Node.js [ba
     From the `packages/mobile` directory
 
     ```bash
-    npm run android
+    node --run android
     ```
 
     The application should now be running on your device.
@@ -80,7 +80,7 @@ Quiet Mobile is a React Native app for Android and iOS that shares a Node.js [ba
     From the `packages/mobile` directory
     
     ```bash
-    npm run start
+    node --run start
     ```
     Connecting to Metro can be fiddly. To get it working, once Metro is fully up and running, shake the Android device twice to access React Native's dev menu, then tap "Reload".  
 
@@ -111,7 +111,7 @@ adb logcat --pid=$(adb shell pidof -s com.quietmobile.debug)
 
 #### Telling Android Studio to use The Temurin JDK 
 
-[Some React Native packages](https://github.com/software-mansion/react-native-svg/issues/2703#issuecomment-2971893634) may build in the terminal with `npm run android` but aren't able to built in Android Studio.
+[Some React Native packages](https://github.com/software-mansion/react-native-svg/issues/2703#issuecomment-2971893634) may build in the terminal with `node --run android` but aren't able to built in Android Studio.
 
 This can be fixed in Android Studio by going to the Settings -> "Build, Execution, Deployment" -> "Build Tools" -> "Gradle" and selecting the "Gradle JDK" dropdown menu. Select the Temurin SDK in place of what Android Studio is suggesting. 
 
@@ -181,7 +181,7 @@ const watchFolders = [
 1. In the project's root, bootstrap the project again (must be run *after* submodule initialization)
 
     ```bash
-    npm run bootstrap
+    node --run bootstrap
     ```
 
 1. Install rbenv, a Ruby version manager, and set Ruby to the suggested version.
@@ -256,7 +256,7 @@ const watchFolders = [
       From the `packages/mobile` directory,
 
       ```bash
-      npm run ios
+      node --run ios
       ```
       There should now be a Quiet icon on your iOS device, and the React Native Metro bundler should be running in its own terminal. Opening Quiet on your iPhone should start Quiet. (🎉!)
 
@@ -348,7 +348,7 @@ Altough if you plan to modify the native code, Android Studio is recommended as 
 Both Android and iOS manages their own dependencies with the help of `gradle` (Android) and `cocoapods` (iOS). They work similar to `npm`.
 Whenever there are changes to the dependencies in the native projects (`build.gradle` or `podfile`) there's a need to sync gradle files (it's fairly easy to do with Android Studio) or to run `pod install` command from the `/ios` directory. It doesn't happen very often but may be a case while attaching react-native modules getting use of the native methods (eg. for file management).
 
-If changes are made to the native part of the project (java, kotlin, objc or swift) it's neccessary to rebuild the project (`npm run android`, `npm run ios`)
+If changes are made to the native part of the project (java, kotlin, objc or swift) it's neccessary to rebuild the project (`node --run android`, `node --run ios`)
 
 React-native uses a tool called metro to bundle javascript files. It does it on runtime, before processing react-native code. Depending on the size of cached files it may take several seconds to fully load the bundled js code. When a change is made to the javascript codebase, it's usually enough to reload files with metro, by pressing `R` from within the console in which metro operates.
 

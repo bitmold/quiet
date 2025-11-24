@@ -10,8 +10,8 @@
     "start": "react-native start",
     "test": "TZ=UTC jest --testPathIgnorePatterns=\"./e2e\"",
     "lint:no-fix": "eslint --ext .jsx,.js,.ts,.tsx ./src/",
-    "lint": "npm run lint:no-fix -- --fix",
-    "lint-ci": "npm run lint:no-fix",
+    "lint": "node --run lint:no-fix -- --fix",
+    "lint-ci": "node --run lint:no-fix",
     "lint-staged": "lint-staged --no-stash",
     "gen": "plop",
     "prepare-backend-assets": "mkdir -p ./nodejs-assets/nodejs-project && cp ../backend/lib/bundle.cjs ./nodejs-assets/nodejs-project/bundle.cjs",
@@ -19,7 +19,7 @@
     "patch-state-manager": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || patch -f -d ../state-manager -p0 < ./factory-girl.patch || true",
     "patch-react-native": "patch -f -p0 --forward --binary < ./react-native.patch || true",
     "patch-webview-crypto": "patch -f -p0 --forward --binary < ./react-native-webview-crypto.patch || true",
-    "prepare": "npm run prepare-backend-assets && npm run patch-react-native-file-logger && npm run patch-state-manager && npm run patch-react-native && npm run patch-webview-crypto && npm run build",
+    "prepare": "node --run prepare-backend-assets && node --run patch-react-native-file-logger && node --run patch-state-manager && node --run patch-react-native && node --run patch-webview-crypto && node --run build",
     "version": "react-native-version --skip-tag"
   },
   "dependencies": {
@@ -168,7 +168,7 @@
     "testRegex": "src/.*\\.test\\.(t|j)sx?$"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "npm run lint:no-fix"
+    "src/**/*.{js,jsx,ts,tsx}": "node --run lint:no-fix"
   },
   "volta": {
     "extends": "../../package.json"

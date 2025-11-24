@@ -12,15 +12,15 @@
     "build": "tsc -p tsconfig.build.json",
     "webpack": "webpack --env mode=development && cp ./lib/bundle.cjs ../backend-bundle/bundle.cjs",
     "webpack:prod": "webpack --env mode=production && cp ./lib/bundle.cjs ../backend-bundle/bundle.cjs",
-    "postinstall": "npm run applyPatches",
-    "applyPatches": "npm run applyPatches:it && npm run applyPatches:libp2p",
+    "postinstall": "node --run applyPatches",
+    "applyPatches": "node --run applyPatches:it && node --run applyPatches:libp2p",
     "applyPatches:libp2p": "patch -f -p0 < ./patch/libp2p/mplex.patch || true",
     "applyPatches:it": "patch -f -p0 < ./patch/it/itws-sink.patch || true",
-    "prepare": "npm run webpack",
+    "prepare": "node --run webpack",
     "version": "git add -A src",
     "lint:no-fix": "eslint --ext .jsx,.js,.ts,.tsx ./src/",
-    "lint": "npm run lint:no-fix -- --fix",
-    "lint-ci": "npm run lint:no-fix",
+    "lint": "node --run lint:no-fix -- --fix",
+    "lint-ci": "node --run lint:no-fix",
     "lint-staged": "lint-staged --no-stash",
     "test-nest": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-global-customevent\" DEBUG=ipfs:*,backend:* node_modules/jest/bin/jest.js --detectOpenHandles --forceExit   ./src/nest/**/*.spec.ts",
     "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-global-customevent\" DEBUG=ipfs:*,backend:* jest --runInBand --verbose --testPathIgnorePatterns=\".src/(!?nodeTest*)|(.node_modules*)\" --detectOpenHandles --forceExit",
@@ -214,7 +214,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "npm run lint:no-fix"
+    "src/**/*.{js,jsx,ts,tsx}": "node --run lint:no-fix"
   },
   "volta": {
     "extends": "../../package.json"

@@ -7,12 +7,12 @@
   "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "prepare": "npm run build",
+    "prepare": "node --run build",
     "test": "jest",
     "test-ci": "jest --colors --collectCoverage --ci",
     "lint:no-fix": "eslint --ext .jsx,.js,.ts,.tsx ./src/",
-    "lint": "npm run lint:no-fix -- --fix",
-    "lint-ci": "npm run lint:no-fix",
+    "lint": "node --run lint:no-fix -- --fix",
+    "lint-ci": "node --run lint:no-fix",
     "lint-staged": "lint-staged --no-stash",
     "check-style": "prettier --check src/**",
     "rmDist": "rimraf lib/"
@@ -72,7 +72,7 @@
     "access": "public"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "npm run lint:no-fix"
+    "src/**/*.{js,jsx,ts,tsx}": "node --run lint:no-fix"
   },
   "volta": {
     "extends": "../../package.json"

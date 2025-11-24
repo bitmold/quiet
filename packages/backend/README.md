@@ -64,7 +64,7 @@ Currently there is no db data in this network - to be added.
 
 When your aim is to build the desktop app run the following command in packages/backend:
 
-`npm run webpack:prod`
+`node --run webpack:prod`
 
 ### Logging
 

@@ -25,7 +25,7 @@ generated and will be overwritten the next time the doc generator is run.
 To make changes to this section, please update the @packageDocumentation section
 of src/index.js or src/index.ts
 
-To experiment with formatting, please run "npm run docs" from the root of this
+To experiment with formatting, please run "node --run docs" from the root of this
 repo and examine the changes made.
 
 -->

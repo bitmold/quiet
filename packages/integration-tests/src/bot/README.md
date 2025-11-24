@@ -3,13 +3,13 @@ Must be run from the root of integration-tests package.
 
 Usage:
 
-`npm run bot -- <options>`
+`node --run bot -- <options>`
 
-`npm run bot -- --help`
+`node --run bot -- --help`
 
 Example:
 
-`npm run bot -- -r j4sdacfjsizgh7psat2bhtneiezqhk3ghvqmr4kifqdvxvcn52ug5xad -c general -m 100 -u 2`
+`node --run bot -- -r j4sdacfjsizgh7psat2bhtneiezqhk3ghvqmr4kifqdvxvcn52ug5xad -c general -m 100 -u 2`
 
 Note:
 

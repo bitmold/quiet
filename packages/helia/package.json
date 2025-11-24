@@ -29,10 +29,10 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "prepare": "npm run build",
+    "prepare": "node --run build",
     "lint:no-fix": "eslint --ext .ts .",
-    "lint": "npm run lint:no-fix -- --fix",
-    "lint-ci": "npm run lint:no-fix",
+    "lint": "node --run lint:no-fix -- --fix",
+    "lint-ci": "node --run lint:no-fix",
     "lint-staged": "lint-staged --no-stash"
   },
   "dependencies": {
@@ -52,7 +52,7 @@
     "lint-staged": "^15.2.2"
   },
   "lint-staged": {
-    "*.{ts}": "npm run lint:no-fix"
+    "*.{ts}": "node --run lint:no-fix"
   },
   "volta": {
     "extends": "../../package.json"

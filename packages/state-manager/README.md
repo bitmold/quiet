@@ -2,4 +2,4 @@ State-manager is common presentation layer functionalities for quiet project - i
 
 ### Running tests
 
-npm run test
+`node --run test`

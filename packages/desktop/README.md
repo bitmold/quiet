@@ -15,8 +15,8 @@ Here are the steps:
 npm i lerna@6.6.2 typescript@4.9.5
 npm i -g pnpm@9.12.1 # may be needed depending on configuration
 npm i
-npm run pull:submodules
-npm run bootstrap
+node --run pull:submodules
+node --run bootstrap
 ```
 
 If you run into problems please double check if you have exact version Node and NPM as listed in point 1.
@@ -24,7 +24,7 @@ If you run into problems please double check if you have exact version Node and 
 5. In project root run,
 
 ```bash
-npm run start:desktop
+node --run start:desktop
 ```
 
 ----
@@ -38,13 +38,13 @@ The project uses independent versioning which means each package has its own ver
 To create a release run:
 
 ```bash
-npm run lerna version <release-type>
+node --run lerna version <release-type>
 ```
 
 To build a prerelease version, run:
 
 ```bash
-npm run lerna version prerelease
+node --run lerna version prerelease
 ```
 
 ----
@@ -98,13 +98,13 @@ To run multiple instances of Quiet for testing, run from the command line with t
 Use lerna to install additional npm packages
 
 ```bash
-npm run lerna add <npm-package-name> [--dev] <path-to-monorepo-package>
+node --run lerna add <npm-package-name> [--dev] <path-to-monorepo-package>
 ```
 
 For example, if you want to install luxon in state-manager, use the following command:
 
 ```bash
-npm run lerna add luxon packages/state-manager
+node --run lerna add luxon packages/state-manager
 ```
 
 ----
@@ -112,19 +112,19 @@ npm run lerna add luxon packages/state-manager
 Lerna takes care of all the packages. You can execute scripts is every package by simply running:
 
 ```bash
-npm run lerna run <script> --stream
+node --run lerna run <script> --stream
 ```
 
 To limit script execution to specific package, add scope to the command
 
 ```bash
-npm run lerna run <script> --stream --scope <package-name>
+node --run lerna run <script> --stream --scope <package-name>
 ```
 
 or multiple packages:
 
 ```bash
-npm run lerna run <script> --stream --scope '{<package-name-1>,<package-name-2>}'
+node --run lerna run <script> --stream --scope '{<package-name-1>,<package-name-2>}'
 ```
 
 Available package names are:
@@ -159,7 +159,7 @@ If you need to compile the electron binary for local testing there are convenien
 ### Mac
 
 ```bash
-npm run distMac:local
+node --run distMac:local
 ```
 
 This will build the Mac binary in the `/dist` directory without signing/notarization and does _not_ publish the binary.  This works for x64 and arm64 but note that the directory under `/dist` will vary based on architecture (x64 deploys under `/dist/mac` and arm64 deploys under `/dist/mac-arm64`).
